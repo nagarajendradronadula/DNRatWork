@@ -1,0 +1,86 @@
+*{
+    background: #185c89;
+}
+
+.card{
+    border: 2px solid #fff;
+    height: 13rem;
+    width: 28rem;
+    background-color: #fff;
+    margin: auto;
+    padding: 1rem;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+    transition: all 0.3s ease-in-out;   
+    text-align: center;
+}
+
+.card:hover{
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+    transform: scale3d(1.07, 1.07, 1.07);
+}
+
+.name{
+    text-align: start;
+    font-size: 1.6rem;
+    font-weight: 600;
+    color: #000;
+    background-color: #fff;
+    margin-bottom: 0;
+    padding-bottom: 0;
+    text-decoration: underline #ab2025;
+}
+
+.designation{
+    text-align: start;
+    font-size: 0.9rem;
+    font-weight: 400;
+    margin-bottom: 2rem;
+    color: #000;
+    background-color: #fff;
+}
+
+.review{
+    text-align: start;
+    font-size: 1.1rem;
+    font-weight: 400;
+    color: #000;
+    background-color: #fff;
+}
+
+.container{
+    height: 20rem;
+    width: 100%;
+    margin: auto;
+    border-radius: 10px;
+    background-color: darkorange;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+}
+
+.innerContainer{
+    background-color: darkorange;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    transition: transform 0.5s ease-in-out;
+    gap:2rem;
+    width: 100%;
+}
+
+
+.slide {
+    animation: slideOut 0.5s ease;
+  }
+  
+@keyframes slideOut {
+    from {
+      transform: translateX(33%);
+    }
+    to {
+      transform: translateX(-33%);
+    }
+  }

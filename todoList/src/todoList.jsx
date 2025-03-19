@@ -6,6 +6,12 @@ function TodoList() {
     const [newTodo, setNewTodo] = useState("");
     const [editId, setEditId] = useState(null);
 
+    const mclaren1 = "/images/mclaren1.jpg";
+    const audi = "/images/audi.jpeg";
+    const mclaren = "/images/mclaren.jpeg";
+    const ferrari = "/images/ferrari.jpeg";
+    const camaro = "/images/camaro.jpeg";
+
     const styles = {
         textDecorationLine: "line-through",
         color: "gray",
@@ -54,19 +60,39 @@ function TodoList() {
         );
     };
 
-    const allTasksDone = () => {
-        setTodos((prevTodos) =>
-            prevTodos.map((todo) => ({ ...todo, isDone: true }))
-        );
-    };
+    // const allTasksDone = () => {
+    //     setTodos((prevTodos) =>
+    //         prevTodos.map((todo) => ({ ...todo, isDone: true }))
+    //     );
+    // };
 
     return (
         <div>
+
+            <section class="container">
+                <div class="slider-wrapper">
+                    <div class="slider">
+                        <img id="slide-1" src={mclaren1} alt="slider Image 1" />
+                        <img id="slide-2" src={audi} alt="slider Image 2" />
+                        <img id="slide-3" src={mclaren} alt="slider Image 3" />
+                        <img id="slide-4" src={ferrari} alt="slider Image 4" />
+                        <img id="slide-5" src={camaro} alt="slider Image 5" />
+                    </div>
+                    <div class="slider-nav">
+                        <a href="#slide-1"></a>
+                        <a href="#slide-2"></a>
+                        <a href="#slide-3"></a>
+                        <a href="#slide-4"></a>
+                        <a href="#slide-5"></a>
+                    </div>
+                </div>
+            </section>
+
             <input
                 placeholder="Type a Task to add"
                 value={newTodo}
                 onChange={updateTodo}
-                style={{ height: "1.8rem", width: "10rem", border: "solid 0.1rem black", borderRadius: "5px", margin: "10px", padding: "10px" }}
+                style={{ height: "1.8rem", width: "10rem", border: "solid 0.1rem black", borderRadius: "5px", margin: "10px", marginTop: "5rem", padding: "10px" }}
 
             />
             <br />
