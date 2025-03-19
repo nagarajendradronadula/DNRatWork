@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Reviews</title>
+    <style>
+        body { font-family: Arial, sans-serif; margin: 20px; }
+        form, .review-list { max-width: 600px; margin: auto; }
+        input, textarea { width: 100%; margin-bottom: 10px; padding: 8px; }
+        button { padding: 10px; background: green; color: white; border: none; }
+        .review { border: 1px solid #ddd; padding: 10px; margin-bottom: 10px; }
+        .actions button { margin-right: 5px; }
+    </style>
+</head>
+<body>
+    <h2>Submit or Update a Review</h2>
+    <form action="/reviews" method="POST">
+        <label for="patient_name">Patient Name</label>
+        <input id="patient_name" type="text" name="patient_name" placeholder="Patient Name" required>
+        <label for="designation">Designation</label>
+        <input id="designation" type="text" name="designation" placeholder="Designation" required>
+        <label for="star_rating">Star Rating</label>
+        <input id="star_rating" type="number" name="star_rating" placeholder="Star Rating (1-5)" required>
+        <label for="review">Review</label>
+        <textarea id="review" name="review" placeholder="Write your review..." required></textarea>
+        <button type="submit">Submit</button>
+    </form>
+
+    <h2>Existing Reviews</h2>
+    <div class="review-list">
+        <% reviews.forEach(review => { %>
+            <div class="review">
+                <p><strong>Name:</strong> <%= review.patient_name %></p>
+                <p><strong>Designation:</strong> <%= review.designation %></p>
+                <p><strong>Rating:</strong> <%= review.star_rating %> ⭐</p>
+                <p><strong>Review:</strong> <%= review.review %></p>
+                <div class="actions">
+                    <button onclick="editReview('<%= review._id %>', '<%= review.patient_name %>', '<%= review.designation %>', '<%= review.star_rating %>', '<%= review.review %>')">Edit</button>
+                    <form action="/reviews/delete/<%= review._id %>" method="POST" style="display:inline;">
+                        <button type="submit" style="background: red;">Delete</button>
+                    </form>
+                </div>
+            </div>
+        <% }) %>
+    </div>
+
+    <script>
+        function editReview(id, name, designation, rating, review) {
+            document.querySelector("form").action = "/reviews/update/" + id;
+            document.querySelector("input[name='patient_name']").value = name;
+            document.querySelector("input[name='designation']").value = designation;
+            document.querySelector("input[name='star_rating']").value = rating;
+            document.querySelector("textarea[name='review']").value = review;
+            document.querySelector("button[type='submit']").innerText = "Update";
+        }
+    </script>
+</body>
+</html>
