@@ -11,6 +11,13 @@
           "scrollbar-width: none"
         ]
       }
+    ],
+    "compat-api/html": "off",
+    "axe/text-alternatives": [
+      "default",
+      {
+        "frame-title": "off"
+      }
     ]
   }
 }
