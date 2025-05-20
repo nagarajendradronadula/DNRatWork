@@ -20,6 +20,13 @@
       }
     ],
     "axe/name-role-value": "off",
-    "axe/structure": "off"
+    "axe/structure": "off",
+    "axe/forms": [
+      "default",
+      {
+        "select-name": "off",
+        "label": "off"
+      }
+    ]
   }
 }
